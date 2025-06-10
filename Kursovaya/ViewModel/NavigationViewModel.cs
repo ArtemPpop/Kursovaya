@@ -20,11 +20,10 @@ namespace Kursovaya.ViewModel
         public ICommand EmployeeCommand { get; set; }
 
         private void Home(object obj) => CurrentView = new HomeViewModel();
-        private void EmployeePage(object obj) => CurrentView = new EmployeeViewModel();
         public NavigationViewModel()
         {
             HomeCommand = new RelayCommand(Home);
-            EmployeeCommand = new RelayCommand(EmployeePage);
+       
             // Startup Page
             CurrentView = new HomeViewModel();
         }
