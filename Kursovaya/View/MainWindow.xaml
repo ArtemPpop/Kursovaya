@@ -4,113 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovaya"
+        xmlns:utils="clr-namespace:Kursovaya.Utills"
         mc:Ignorable="d"
         Title="Онлайн кинотеатр" Height="800" Width="1200" Background="#121212">
+
     <DockPanel>
-        <!-- Шапка (фиксированная сверху) -->
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="#1f1f1f" Margin="10" HorizontalAlignment="Stretch">
             <TextBlock Text="КиноТека" FontSize="24" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+
             <StackPanel Orientation="Horizontal" Margin="20,0,0,0" VerticalAlignment="Center">
-                <Button Content="Фильмы" Margin="5,0" Padding="10,5"/>
-                <Button Content="Сериалы" Margin="5,0" Padding="10,5"/>
-                <Button Content="Мой профиль" Margin="5,0" Padding="10,5"/>
-                <Button Content="Подписка" Margin="5,0" Padding="10,5"/>
+                <utils:Btn x:Name="FilmsButton" Content="Фильмы" GroupName="MenuGroup" />
+                <utils:Btn x:Name="RecommendationsButton" Content="Рекомендации" GroupName="MenuGroup"/>
+                <utils:Btn x:Name="ProfileButton" Content="Мой профиль" GroupName="MenuGroup"/>
+                <utils:Btn x:Name="SubscriptionButton" Content="Подписка" GroupName="MenuGroup"/>
             </StackPanel>
-            <!-- Правый блок с поиском и профилем -->
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBox Width="200" Height="30" Margin="20,0,0,0" VerticalAlignment="Center"/>
-                <!-- Иконка профиля -->
+                <TextBox Width="200" Height="30" Margin="20,0,0,0" VerticalAlignment="Center" 
+                         FontSize="14" Style="{StaticResource SearchTextBoxStyle}"/>
                 <Ellipse Width="30" Height="30" Fill="#555" Margin="10,0"/>
             </StackPanel>
         </StackPanel>
 
-        <!-- Основной контент занимает оставшееся пространство -->
-        <Grid>
-            <!-- Колонки для бокового меню и основного содержимого -->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="254"/> <!-- Левая панель -->
-                <ColumnDefinition Width="*"/>   <!-- Основной контент -->
-            </Grid.ColumnDefinitions>
-
-            <!-- Меню слева (можно оставить как есть или убрать) -->
-            <!-- Если меню должно быть фиксированным сверху и слева одновременно -->
-            <!-- Можно оставить или убрать в зависимости от дизайна -->
-
-            <!-- Основной контент с прокруткой -->
-            <ScrollViewer Grid.Column="1"  VerticalScrollBarVisibility="Auto">
-                <StackPanel>
-                    <!-- Баннер -->
-                    <Grid Height="200" Margin="10">
-                        <Image Source="/Images/banner.jpg" Stretch="Fill"/>
-                        <Border Background="#80000000">
-                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <TextBlock Text = "Новые фильмы уже доступны!" FontSize = "14"
-                                           Foreground = "#FFFFFF" FontWeight = "Bold"
-                                           HorizontalAlignment = "Center" Width = "220"/>
-                                <Button Content = "Подписаться сейчас"
-                                        Background="#FF0000"
-                                        Foreground="#FFFFFF"
-                                        Padding = "15,8"
-                                        Margin = "20,10"
-                                        FontSize = "16"/>
-                            </StackPanel>
-                        </Border>
-                    </Grid>
-
-                    <!-- Рекомендуемые фильмы -->
-                    <TextBlock Text = "Рекомендуемое для вас"
-                               FontSize = "20"
-                               Foreground = "White"
-                               Margin = "10"/>
-
-                    <!-- Карточки фильмов -->
-                    <ItemsControl Margin = "10">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost = "True"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-
-                        <!-- Пример карточки фильма -->
-                        <Border Width = "150"
-                                Height = "250"
-                                Background = "#222"
-                                CornerRadius = "8"
-                                Margin = "5">
-                            <StackPanel>
-                                <Image Source="/Images/movie1.jpg"
-                                       Height = "180"
-                                       Stretch = "UniformToFill"/>
-                                <TextBlock Text = "Название фильма 1"
-                                           Foreground = "White"
-                                           FontWeight = "Bold"
-                                           TextWrapping = "Wrap"
-                                           Margin = "5,2"/>
-                                <TextBlock Text = "Рейтинг: ★★★★☆"
-                                           Foreground="#AAAAAA"
-                                           FontSize ="12"
-                                           Margin ="5,2"/>
-                                <Button Content ="Смотреть"
-                                        Background="#FF0000"
-                                        Foreground="#FFFFFF"
-                                        Margin ="5"
-                                        Padding ="5,2"/>
-                            </StackPanel>
-                        </Border>
-
-                        <!-- Можно добавить еще карточек по аналогии -->
-
-                    </ItemsControl>
-                </StackPanel>
-            </ScrollViewer>
-
-        </Grid>
-
-        <!-- Футер внизу (можно оставить фиксированным или убрать) -->
-        <!--<Border DockPanel.Dock ="Bottom" Background="#1f1f1f" Padding ="10">
-            <TextBlock Text ="2024 Онлайн кинотеатр. Все права защищены."
-                       Foreground ="Gray"
-                       HorizontalAlignment ="Center"/>
-        </Border>-->
+        <!-- Основной контент -->
+        <ContentControl x:Name="MainContentArea"/>
     </DockPanel>
 </Window>

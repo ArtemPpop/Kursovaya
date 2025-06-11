@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="Kursovaya.View.SubscriptionPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Kursovaya"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800"
+             Background="#121212">
+    <StackPanel Margin="20" HorizontalAlignment="Center">
+        <TextBlock Text="Ваша подписка" 
+                   FontSize="24" 
+                   Foreground="White"
+                   Margin="0,0,0,30"
+                   HorizontalAlignment="Center"/>
+
+        <!-- Текущая подписка -->
+        <Border Background="#1f1f1f" 
+                CornerRadius="10"
+                Padding="20"
+                Width="400">
+            <StackPanel>
+                <TextBlock Text="Премиум" 
+                           FontSize="20" 
+                           Foreground="Gold"
+                           Margin="0,0,0,10"/>
+
+                <TextBlock Text="Действует до: 31.12.2023" 
+                           Foreground="#aaa"
+                           Margin="0,0,0,20"/>
+
+                <Button Content="Продлить подписку" 
+                        Background="#4CAF50"
+                        Foreground="White"
+                        Padding="15,8"
+                        FontSize="16"
+                        HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Доступные тарифы -->
+        <TextBlock Text="Доступные тарифы" 
+                   FontSize="20" 
+                   Foreground="White"
+                   Margin="0,40,0,20"/>
+
+        <WrapPanel HorizontalAlignment="Center">
+            <!-- Базовый тариф -->
+            <Border Background="#1f1f1f" 
+                    CornerRadius="10"
+                    Padding="20"
+                    Width="250"
+                    Margin="10">
+                <StackPanel>
+                    <TextBlock Text="Базовый" 
+                               FontSize="18" 
+                               Foreground="White"
+                               Margin="0,0,0,10"/>
+                    <TextBlock Text="299 руб/мес" 
+                               FontSize="22" 
+                               Foreground="White"
+                               Margin="0,0,0,15"/>
+                    <Button Content="Выбрать" 
+                            Background="#333"
+                            Foreground="White"
+                            Padding="10,5"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Премиум тариф -->
+            <Border Background="#2a2a2a" 
+                    CornerRadius="10"
+                    Padding="20"
+                    Width="250"
+                    Margin="10"
+                    BorderBrush="Gold"
+                    BorderThickness="2">
+                <StackPanel>
+                    <TextBlock Text="Премиум" 
+                               FontSize="18" 
+                               Foreground="Gold"
+                               Margin="0,0,0,10"/>
+                    <TextBlock Text="599 руб/мес" 
+                               FontSize="22" 
+                               Foreground="Gold"
+                               Margin="0,0,0,15"/>
+                    <Button Content="Выбрать" 
+                            Background="Gold"
+                            Foreground="Black"
+                            Padding="10,5"
+                            FontWeight="Bold"/>
+                </StackPanel>
+            </Border>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

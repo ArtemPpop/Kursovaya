@@ -16,13 +16,19 @@ using System.Windows.Shapes;
 namespace Kursovaya.View
 {
     /// <summary>
-    /// Логика взаимодействия для FilmListPage.xaml
+    /// Логика взаимодействия для UserPage.xaml
     /// </summary>
-    public partial class FilmListPage : UserControl
+    public partial class ProfilePage : UserControl
     {
-        public FilmListPage()
+        public ProfilePage()
         {
-            InitializeComponent();
+            InitializeComponent(); // Теперь будет работать
+            LoadProfilePage();
+        }
+
+        private void LoadProfilePage()
+        {
+            // Ваш код загрузки рекомендаций
         }
     }
 }
