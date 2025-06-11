@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Тёмный стиль для Slider -->
+    <Style x:Key="DarkSliderStyle" TargetType="Slider">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Grid Margin="5,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Track x:Name="PART_Track"
+                           Grid.Row="1"
+                           Minimum="{TemplateBinding Minimum}"
+                           Maximum="{TemplateBinding Maximum}"
+                           Value="{TemplateBinding Value}"
+                           IsDirectionReversed="{TemplateBinding IsDirectionReversed}">
+
+                            <!-- Левая часть трека (пройденное время) -->
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Style="{x:Null}" 
+                                          Background="#888"
+                                          Height="4"
+                                          IsEnabled="False"/>
+                            </Track.DecreaseRepeatButton>
+
+                            <!-- Бегунок -->
+                            <Track.Thumb>
+                                <Thumb Width="12" Height="12">
+                                    <Thumb.Template>
+                                        <ControlTemplate TargetType="Thumb">
+                                            <Ellipse Fill="White" Stroke="#888" StrokeThickness="1"/>
+                                        </ControlTemplate>
+                                    </Thumb.Template>
+                                </Thumb>
+                            </Track.Thumb>
+
+                            <!-- Правая часть трека (оставшееся время) -->
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Style="{x:Null}"
+                                          Background="#444"
+                                          Height="4"
+                                          IsEnabled="False"/>
+                            </Track.IncreaseRepeatButton>
+                        </Track>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style> 
+
+</ResourceDictionary>
